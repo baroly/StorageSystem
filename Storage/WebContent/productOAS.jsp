@@ -8,7 +8,7 @@
 		<div class="crumb-list">
 			<i class="icon-font"></i><a href="index.jsp">首页</a><span class="crumb-step">&gt;</span>
 				
-				<span>新增進貨單</span>
+				<span>新增/修改 進貨單</span>
 		</div>
 	</div>
 	

@@ -10,9 +10,10 @@
 	<div class="crumb-wrap">
 		<div class="crumb-list">
 			<i class="icon-font"></i><a href="index.jsp">首页</a><span class="crumb-step">&gt;</span>
-				<!-- <span>新增進貨單</span><span class="crumb-step">&gt;</span> -->
+			<a class="crumb-name" href="productOAS.jsp">新增/修改 進貨單</a><span class="crumb-step">&gt;</span>
+				<!-- <span>新增/修改 進貨單</span><span class="crumb-step">&gt;</span> -->
 				<!-- <span>確認進貨單</span><span class="crumb-step">&gt;</span> -->
-				<span>庫存狀況查詢</span>
+				<span>查詢修改進貨單</span>
 		</div>
 	</div>
 	<div class="result-wrap">

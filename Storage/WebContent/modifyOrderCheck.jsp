@@ -4,16 +4,7 @@
 <%@ include file="menu.jsp"%>
 <%
 	ProductPS pps = (ProductPS)session.getAttribute("PPS");
-	String mess=(String)session.getAttribute("msgErr");
-		if(mess==null){
-		}
-		else{
-			session.setAttribute("msgErr", ""); 
-		%>
-<script type="text/javascript">
-		alert("<%=mess%>");
-</script>
-<%	session.removeAttribute("msgErr"); }%>
+%>
 <!--/sidebar-->
 <div class="main-wrap">
 

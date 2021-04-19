@@ -9,7 +9,7 @@
 	<div class="crumb-wrap">
 		<div class="crumb-list">
 			<i class="icon-font"></i><a href="index.jsp">首页</a><span class="crumb-step">&gt;</span>
-				
+			<a class="crumb-name" href="productOAS.jsp">新增/修改 進貨單</a><span class="crumb-step">&gt;</span>
 				<span>新增進貨單</span>
 		</div>
 	</div>
@@ -34,7 +34,7 @@
 							</th>
 						</tr>
 						<tr>
-							<th width="120"><i class="require-red">*</i>編號：</th>
+							<th width="120">編號：</th>
 							<!-- 
 							<td colspan="2"><input class="common-text required" id="title"
 								name="title" size="50" value="" type="text"></td>
@@ -45,7 +45,7 @@
 									<option value="19">精品界面</option>
 									<option value="20">推荐界面</option>
 							</select></td>-->
-							<th width="120"><i class="require-red">*</i>輸入日期：</th>
+							<th width="120">輸入日期：</th>
 							<td colspan="4">--</td>
 							<!-- 
 							<td colspan="2"><input class="common-text required"
@@ -80,7 +80,7 @@
 							<th>報單號碼：</th>
 							<td colspan="2"><input class="common-text" name="orderNum" size="50"
 								value="" type="text"></td>
-							<th width="120"><i class="require-red">*</i>匯率：</th>
+							<th width="120">匯率：</th>
 							<td colspan="4"><input class="common-text required" id="exchangeRate"
 								name="exchangeRate" size="50" value="1" type="text" 
 								onkeyup="value=value.replace(/[^\d.]/g,'')"></td>
@@ -90,7 +90,7 @@
 							<td colspan="2"><input class="common-text" name="offshoreDate" size="50"
 								value="" type="text" placeholder="YYYYMMDD" 
 								oninput="value=value.replace(/[^\d]/g,'');if(value.length>8)value=value.slice(0,8)"></td>
-							<th width="120"><i class="require-red">*</i>到案日期：</th>
+							<th width="120">到案日期：</th>
 							<td colspan="4"><input class="common-text required" id="arrivalDate"
 								name="arrivalDate" size="50" value="" 
 								type="text" placeholder="YYYYMMDD"
@@ -103,7 +103,7 @@
 								value="" type="text"></td>
 							 -->
 							 <td colspan="2">--</td>
-							<th width="120"><i class="require-red">*</i>入庫日期：</th>
+							<th width="120">入庫日期：</th>
 							<!-- 
 							<td colspan="2"><input class="common-text required" id="title"
 								name="title" size="50" value="" type="text"></td>
@@ -205,11 +205,19 @@
 		    },
 		    timeout:5000,    //超时时间
 		    dataType:'text',    //返回的数据格式：json/xml/html/script/jsonp/text
-		    success:function(data,textStatus,jqXHR){//data是成功后，接收的返回值
+		    success:function(data,textStatus,jqXHR){//data是成功后，接收的返回值invoiceNo
 		    	// 1. 判断后台返回的值是true还是false
 		    	if($("#companyOrderNum").val()===""){
 		            alert("請正確填入公司訂單號碼");
 		            eval("document.form1['name'].focus()");
+		            return false;
+		        }else if($("#invoiceNo").val()===""){
+		        	alert("請正確填入invoiceNo");
+		            eval("document.form1['invoiceNo'].focus()");
+		            return false;
+		        }else if($("#shipmentVendorName").val()==="--"){
+		        	alert("請選擇出貨廠商");
+		            eval("document.form1['shipmentVendorName'].focus()");
 		            return false;
 		        }else if(data === "true"){
 		        	alert("進貨單已存在");
