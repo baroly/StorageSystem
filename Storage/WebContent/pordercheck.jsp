@@ -4,7 +4,6 @@
 <%@ include file="menu.jsp"%>
 <%
 	ProductPS pps = (ProductPS)session.getAttribute("PPS");
-	System.out.println(pps.getFillingDate());
 	String mess=(String)session.getAttribute("msgErr");
 		if(mess==null){
 		}

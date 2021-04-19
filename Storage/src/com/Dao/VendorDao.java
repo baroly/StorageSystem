@@ -12,6 +12,8 @@ public class VendorDao {
 	
 	public static void main(String[] args) {
 //		insert(new Vendor("早安", "午安", "123"));
+//		ArrayList<String> a = getAllVendor("kindom");
+//		a.forEach(System.out::println);
 	}
 	
 	public static ArrayList<String> getAllVendor(){
@@ -20,6 +22,8 @@ public class VendorDao {
 		Connection conn = BaseDao.getConn();
 		ResultSet rs = null;
 		PreparedStatement ps = null;
+		
+		a.add("--");
 		
 		try {
 			ps = conn.prepareStatement(sql);
@@ -34,6 +38,35 @@ public class VendorDao {
 			e.printStackTrace();
 		}
 		
+		
+		return a;
+	}
+	
+	public static ArrayList<String> getAllVendor(String name){
+		ArrayList<String> a = new ArrayList<>();
+		String sql = "select * from vendor";
+		Connection conn = BaseDao.getConn();
+		ResultSet rs = null;
+		PreparedStatement ps = null;
+		
+		a.add(name);
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				String get = rs.getString("VendorName");
+				if(get.indexOf(name) < 0) {
+					a.add(get);
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//a.forEach(System.out::println);
 		
 		return a;
 	}

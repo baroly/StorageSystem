@@ -42,6 +42,12 @@ public class ProductPsDao {
 //		System.out.println(x);
 		
 		//delPorderDetail("D202104070001");
+		
+//		ProductPS pps = selectOrderByName("D202104070003");
+//		System.out.println(pps.getExchangeRate());
+		
+
+		
 	}
 	
 	public static int insert(ProductPS p) {
@@ -144,8 +150,43 @@ public class ProductPsDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			BaseDao.closeAll(rs, ps, conn);
 		}
 		
+		return p;
+		
+	}
+	
+	public static ProductPS selectOrderByName(String name) {
+		ProductPS p = null;
+		String sql = "";
+		Connection conn = BaseDao.getConn();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			sql = "select * from productpurchaseorder where CompanyOrderNum=?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, name);
+			
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				p = new ProductPS(rs.getString("companyOrderNum"),
+						rs.getString("shipmentVendorName"),
+						rs.getString("invoiceNo"),
+						Double.valueOf(rs.getInt("ExchangeRate")),
+						rs.getString("trackingNum"),
+						rs.getString("orderNum"),
+						rs.getString("offshoreDate"),
+						rs.getString("arrivalDate"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			BaseDao.closeAll(rs, ps, conn);
+		}
 		return p;
 		
 	}
