@@ -1,12 +1,12 @@
 package tools;
 
 public class JudgeSName {
-//	public static void main(String[] args) {
+	//public static void main(String[] args) {
 //		boolean a = judgeSName("TXa100Sx10-TXa120Sx30");
 //		//boolean b = judgeSName("X100-T120");
 //		System.out.println(a);
 //		//System.out.println(b);
-//	}
+	//}
 	
 	public static boolean judgeSName(String pSN){
 		String serialLong = "";
