@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="GBK"?>
+<barcode_conf>
+<a3 fontSize="4" fontName="黑體" hrp="0" barHeight="10" orientation="0" antiAlias="false" quietZone="false" dpi="200" type="PDF417"/>
+<a2 type="CODE39"/>
+<a1 type="CODE39"/>
+</barcode_conf>
